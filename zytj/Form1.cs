@@ -212,9 +212,9 @@ namespace zytj
                 // 从文件读取并显示行，直到文件的末尾 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    if (String.Compare(line.Split()[2], textBox3.Text) == 0)
+                    if (String.Compare(line.Split('\t')[2], textBox3.Text) == 0)
                     {
-                        string[] time_str = line.Split()[0].Split('/');
+                        string[] time_str = line.Split('\t')[0].Split('/');
                         DateTime time = new DateTime(Int32.Parse(time_str[0]), Int32.Parse(time_str[1]), Int32.Parse(time_str[2]));
                         if (DateTime.Compare(time, start_date) < 0)
                         {
@@ -224,7 +224,30 @@ namespace zytj
                         {
                             continue;
                         }
-                        Console.WriteLine(time.ToString());
+                        for (int k = 0; k < student_amount - 1; k++)
+                        {
+                            if (line.Split('\t')[1].Contains(student_ids[k]))
+                            {
+                                for (int x = 0; x < 5; x++)
+                                {
+                                    if (String.Compare(Wbook.Worksheets[0].Cells[start_row + 1 + k, start_col + x].Value.ToString(), "") == 0)
+                                    {
+                                        if (x != 0)
+                                        {
+                                            //一天提交两次，重复的不算
+                                            if (String.Compare(Wbook.Worksheets[0].Cells[start_row + 1 + k, start_col + x - 1].Value.ToString(), time.ToString("d")) == 0)
+                                            {
+                                                Console.WriteLine(student_ids[k]);
+                                                break;
+                                            }
+                                        }
+                                        Wbook.Worksheets[0].Cells[start_row + 1 + k, start_col + x].Value = time.ToString("d");
+                                        break;
+                                    }
+                                }
+                               
+                            }
+                        }
                     }
                 }
             }
