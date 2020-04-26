@@ -182,7 +182,7 @@ namespace zytj
             {
                 if (Wbook.Worksheets[0].Cells[start_row + i, start_col].Value == null)
                 {
-                    student_amount = i;
+                    student_amount = i-1;
                     break;
                 }
                 string cur_student_id = Wbook.Worksheets[0].Cells[start_row + i, start_col].Value.ToString();
@@ -193,7 +193,7 @@ namespace zytj
             start_col = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0)) * 3 + 1;
 
             //清空表格
-            for (int i = start_row + 1; i < start_row + student_amount; i++)
+            for (int i = start_row + 1; i <= start_row + student_amount; i++)
             {
                 for (int j = start_col; j <= start_col + 5; j++)
                 {
@@ -224,7 +224,7 @@ namespace zytj
                         {
                             continue;
                         }
-                        for (int k = 0; k < student_amount - 1; k++)
+                        for (int k = 0; k < student_amount ; k++)
                         {
                             if (line.Split('\t')[1].Contains(student_ids[k]))
                             {
@@ -251,8 +251,11 @@ namespace zytj
                     }
                 }
             }
-            System.Diagnostics.Process.Start(@".\WriteXLSX.xlsx");
-            Wbook.WriteXLSX(@".\WriteXLSX.xlsx");
+            richTextBox1.Text = richTextBox1.Text + "[通知] 正在保存\n";
+            Wbook.WriteXLSX(@".\程序输出文件请核对.xlsx");
+            richTextBox1.Text = richTextBox1.Text + "[通知] 保存完毕\n";
+
+            System.Diagnostics.Process.Start(@".\程序输出文件请核对.xlsx");
         }
 
         private void label7_Click(object sender, EventArgs e)

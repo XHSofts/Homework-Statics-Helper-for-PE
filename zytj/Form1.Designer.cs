@@ -151,7 +151,7 @@
             "2019【双健班】"});
             this.comboBox1.Location = new System.Drawing.Point(148, 120);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(126, 29);
+            this.comboBox1.Size = new System.Drawing.Size(141, 29);
             this.comboBox1.TabIndex = 9;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
