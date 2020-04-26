@@ -78,6 +78,37 @@ namespace zytj
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox2.Text = comboBox1.SelectedItem.ToString();
+            if (String.Compare(textBox2.Text, "2019【网二34】") == 0)
+            {
+                textBox3.Text = "713011431";
+            }
+            else if (String.Compare(textBox2.Text, "2019【气一34】") == 0) {
+                textBox3.Text = "720351151";
+            }
+            else if (String.Compare(textBox2.Text, "2019【气二56】") == 0)
+            {
+                textBox3.Text = "764786230";
+            }
+            else if (String.Compare(textBox2.Text, "2019【气四34】") == 0)
+            {
+                textBox3.Text = "777830439";
+            }
+            else if (String.Compare(textBox2.Text, "2019【气三34】") == 0)
+            {
+                textBox3.Text = "761795783";
+            }
+            else if (String.Compare(textBox2.Text, "2019【气三56】") == 0)
+            {
+                textBox3.Text = "601830842";
+            }
+            else if (String.Compare(textBox2.Text, "2019【气一56】") == 0)
+            {
+                textBox3.Text = "652910637";
+            }
+            else if (String.Compare(textBox2.Text, "2019【双健班】") == 0)
+            {
+                textBox3.Text = "627624513";
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -152,6 +183,17 @@ namespace zytj
                 student_ids[i-1] = cur_student_id;
             }
             richTextBox1.Text = richTextBox1.Text + "[通知] 读取完成，您班共" + student_amount.ToString() + "名同学\n";
+
+            using (StreamReader sr = new StreamReader("data.txt"))
+            {
+                string line;
+
+                // 从文件读取并显示行，直到文件的末尾 
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -160,6 +202,16 @@ namespace zytj
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }
