@@ -137,6 +137,12 @@ namespace zytj
                 return;
             }
 
+            if (numericUpDown1.Value == 0)
+            {
+                MessageBox.Show("请选择周数");
+                return;
+            }
+
             //Create a new workbook.  
             ExcelWorkbook Wbook = ExcelWorkbook.ReadXLSX(textBox1.Text);
 
@@ -180,20 +186,50 @@ namespace zytj
                     break;
                 }
                 string cur_student_id = Wbook.Worksheets[0].Cells[start_row + i, start_col].Value.ToString();
-                student_ids[i-1] = cur_student_id;
+                student_ids[i - 1] = cur_student_id;
             }
             richTextBox1.Text = richTextBox1.Text + "[通知] 读取完成，您班共" + student_amount.ToString() + "名同学\n";
+            richTextBox1.Text = richTextBox1.Text + "[通知] 开始读取数据\n";
+            start_col = Convert.ToInt32(Math.Round(numericUpDown1.Value, 0)) * 3 + 1;
+
+            //清空表格
+            for (int i = start_row + 1; i < start_row + student_amount; i++)
+            {
+                for (int j = start_col; j <= start_col + 5; j++)
+                {
+                    Wbook.Worksheets[0].Cells[i, j].Value = null;
+                    Wbook.Worksheets[0].Cells[i, j].Style.StringFormat = "YYYY-MM-DD";
+                }
+            }
 
             using (StreamReader sr = new StreamReader("data.txt"))
             {
+                DateTime start_date = new DateTime(2020, 4, 20).AddDays(( Convert.ToInt32(Math.Round(numericUpDown1.Value, 0)) - 10)*7);
+                DateTime end_date = start_date.AddDays(6);
+                richTextBox1.Text = richTextBox1.Text + "[通知] 正在统计" + start_date.ToString("yyyy-MM-dd") + "到" + end_date.ToString("yyyy-MM-dd") + "的数据\n";
+                
                 string line;
-
                 // 从文件读取并显示行，直到文件的末尾 
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(line);
+                    if (String.Compare(line.Split()[2], textBox3.Text) == 0)
+                    {
+                        string[] time_str = line.Split()[0].Split('/');
+                        DateTime time = new DateTime(Int32.Parse(time_str[0]), Int32.Parse(time_str[1]), Int32.Parse(time_str[2]));
+                        if (DateTime.Compare(time, start_date) < 0)
+                        {
+                            continue;
+                        }
+                        if (DateTime.Compare(time, end_date) > 0)
+                        {
+                            continue;
+                        }
+                        Console.WriteLine(time.ToString());
+                    }
                 }
             }
+            System.Diagnostics.Process.Start(@".\WriteXLSX.xlsx");
+            Wbook.WriteXLSX(@".\WriteXLSX.xlsx");
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -212,6 +248,16 @@ namespace zytj
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }
