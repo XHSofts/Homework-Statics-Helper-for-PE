@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using Docs.Excel;
 
 namespace zytj
 {
@@ -73,6 +74,75 @@ namespace zytj
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = comboBox1.SelectedItem.ToString();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            if (String.Compare(textBox1.Text, "") == 0)
+            {
+                MessageBox.Show("请选择记分册");
+                return;
+            }
+
+            if (String.Compare(textBox2.Text, "") == 0)
+            {
+                MessageBox.Show("请选择班级");
+                return;
+            }
+
+            if (String.Compare(button1.Text, "点击同步数据") == 0)
+            {
+                MessageBox.Show("请同步数据");
+                return;
+            }
+
+            //Create a new workbook.  
+            ExcelWorkbook Wbook = ExcelWorkbook.ReadXLSX(textBox1.Text);
+
+            //锁定学号的行和列
+            int row = 0;
+            int col = 0;
+
+            while (true)
+            {
+                if (Wbook.Worksheets[0].Cells[row, col].Value != null)
+                {
+                    if (String.Compare(Wbook.Worksheets[0].Cells[row, col].Value.ToString(), "学号") == 0)
+                    {
+                        break;
+                    }
+                }
+                
+                if (col < Wbook.Worksheets[0].Rows.Count)
+                {
+                    col++;
+                }
+                else
+                {
+                    col = 0;
+                    row++;
+                }
+
+            }
+
+            richTextBox1.Text = richTextBox1.Text + "学号在" + (row + 1).ToString() + "行" + (col + 1).ToString() + "列";
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
