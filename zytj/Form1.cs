@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using Docs.Excel;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace zytj
 {
@@ -108,33 +110,48 @@ namespace zytj
             ExcelWorkbook Wbook = ExcelWorkbook.ReadXLSX(textBox1.Text);
 
             //锁定学号的行和列
-            int row = 0;
-            int col = 0;
+            int start_row = 0;
+            int start_col = 0;
+            int total_row = Wbook.Worksheets[0].Rows.Count;
 
             while (true)
             {
-                if (Wbook.Worksheets[0].Cells[row, col].Value != null)
+                if (Wbook.Worksheets[0].Cells[start_row, start_col].Value != null)
                 {
-                    if (String.Compare(Wbook.Worksheets[0].Cells[row, col].Value.ToString(), "学号") == 0)
+                    if (String.Compare(Wbook.Worksheets[0].Cells[start_row, start_col].Value.ToString(), "学号") == 0)
                     {
                         break;
                     }
                 }
-                
-                if (col < Wbook.Worksheets[0].Rows.Count)
+
+                if (start_col < total_row)
                 {
-                    col++;
+                    start_col++;
                 }
                 else
                 {
-                    col = 0;
-                    row++;
+                    start_col = 0;
+                    start_row++;
                 }
 
             }
 
-            richTextBox1.Text = richTextBox1.Text + "学号在" + (row + 1).ToString() + "行" + (col + 1).ToString() + "列";
+            richTextBox1.Text = richTextBox1.Text + "[通知] 发现“学号”位于" + (start_row + 1).ToString() + "行" + (start_col + 1).ToString() + "列\n";
+            richTextBox1.Text = richTextBox1.Text + "[通知] 正在读取全班同学学号\n";
 
+            string[] student_ids = new string[50];
+            int student_amount;
+            for (int i = 1; ; i++)
+            {
+                if (Wbook.Worksheets[0].Cells[start_row + i, start_col].Value == null)
+                {
+                    student_amount = i;
+                    break;
+                }
+                string cur_student_id = Wbook.Worksheets[0].Cells[start_row + i, start_col].Value.ToString();
+                student_ids[i-1] = cur_student_id;
+            }
+            richTextBox1.Text = richTextBox1.Text + "[通知] 读取完成，您班共" + student_amount.ToString() + "名同学\n";
         }
 
         private void label7_Click(object sender, EventArgs e)
