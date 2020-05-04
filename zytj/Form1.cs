@@ -109,6 +109,10 @@ namespace zytj
             {
                 textBox3.Text = "627624513";
             }
+            else if (String.Compare(textBox2.Text, "周三上午篮球") == 0)
+            {
+                textBox3.Text = "1007512501";
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -143,7 +147,7 @@ namespace zytj
                 return;
             }
 
-            //Create a new workbook.  
+            //Read a new workbook.  
             ExcelWorkbook Wbook = ExcelWorkbook.ReadXLSX(textBox1.Text);
 
             //锁定学号的行和列
@@ -155,6 +159,7 @@ namespace zytj
             {
                 if (Wbook.Worksheets[0].Cells[start_row, start_col].Value != null)
                 {
+
                     if (String.Compare(Wbook.Worksheets[0].Cells[start_row, start_col].Value.ToString(), "学号") == 0)
                     {
                         break;
@@ -183,6 +188,10 @@ namespace zytj
                 if (Wbook.Worksheets[0].Cells[start_row + i, start_col].Value == null)
                 {
                     student_amount = i-1;
+                    break;
+                } else if (String.Compare(Wbook.Worksheets[0].Cells[start_row + i, start_col].Value.ToString(), "") == 0)
+                {
+                    student_amount = i - 1;
                     break;
                 }
                 string cur_student_id = Wbook.Worksheets[0].Cells[start_row + i, start_col].Value.ToString();
@@ -286,6 +295,16 @@ namespace zytj
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://hxp.plus/");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/XHSofts/Homework-Statics-Helper-for-PE/");
         }
     }
 }

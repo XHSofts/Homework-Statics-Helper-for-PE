@@ -46,6 +46,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +104,7 @@
             this.textBox1.Location = new System.Drawing.Point(117, 87);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(671, 28);
+            this.textBox1.Size = new System.Drawing.Size(750, 28);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -118,7 +123,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(429, 224);
+            this.label4.Location = new System.Drawing.Point(404, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 31);
             this.label4.TabIndex = 6;
@@ -148,10 +153,11 @@
             "2019【气三34】",
             "2019【气三56】",
             "2019【气一56】",
-            "2019【双健班】"});
+            "2019【双健班】",
+            "周三上午篮球"});
             this.comboBox1.Location = new System.Drawing.Point(148, 120);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(141, 29);
+            this.comboBox1.Size = new System.Drawing.Size(187, 29);
             this.comboBox1.TabIndex = 9;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -172,14 +178,14 @@
             this.textBox2.Location = new System.Drawing.Point(117, 159);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(255, 28);
+            this.textBox2.Size = new System.Drawing.Size(283, 28);
             this.textBox2.TabIndex = 11;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(435, 258);
+            this.button3.Location = new System.Drawing.Point(410, 258);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(251, 30);
             this.button3.TabIndex = 12;
@@ -203,7 +209,7 @@
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(19, 258);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(381, 204);
+            this.richTextBox1.Size = new System.Drawing.Size(381, 127);
             this.richTextBox1.TabIndex = 16;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -212,10 +218,10 @@
             // 
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(472, 159);
+            this.textBox3.Location = new System.Drawing.Point(502, 159);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(316, 28);
+            this.textBox3.Size = new System.Drawing.Size(365, 28);
             this.textBox3.TabIndex = 17;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -223,7 +229,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(378, 162);
+            this.label8.Location = new System.Drawing.Point(406, 159);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 18;
@@ -250,11 +256,70 @@
             this.numericUpDown1.TabIndex = 22;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel1.Location = new System.Drawing.Point(142, 404);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(727, 31);
+            this.linkLabel1.TabIndex = 23;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "https://github.com/XHSofts/Homework-Statics-Helper-for-PE/";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(12, 404);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 31);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "7.项目地址";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(406, 301);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(452, 31);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "6.作者：hxp<hxp201406@gmail.com>";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel2.Location = new System.Drawing.Point(517, 354);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(204, 31);
+            this.linkLabel2.TabIndex = 26;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "https://hxp.plus/";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft YaHei UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(406, 354);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 31);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "个人主页:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 474);
+            this.ClientSize = new System.Drawing.Size(877, 445);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -274,7 +339,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "体育作业统计 V0.0.1";
+            this.Text = "体育作业统计 V0.0.2";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
@@ -302,6 +367,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label12;
     }
 }
 
